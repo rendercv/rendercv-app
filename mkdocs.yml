@@ -34,7 +34,6 @@ theme:
     - content.action.edit # view source button for pages
     - navigation.footer # the previous and next buttons in the footer
     - navigation.indexes # allow mother pages to have their own index pages
-    # - navigation.tabs # render classical type of navbar at top
     - navigation.instant # instant navigation for faster page loads
     - navigation.instant.prefetch # prefetch pages for instant navigation
     - navigation.instant.progress # show progress bar for instant navigation

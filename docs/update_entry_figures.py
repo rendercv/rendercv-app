@@ -12,7 +12,6 @@ import pydantic
 import ruamel.yaml
 
 import rendercv.data as data
-import rendercv.renderer as renderer
 
 repository_root = pathlib.Path(__file__).parent.parent
 rendercv_path = repository_root / "rendercv"
