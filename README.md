@@ -4,39 +4,41 @@ We are developing an app on top of our open-source engine ([`rendercv` Python 
 
 ## Mission
 
-There isn't currently a cross-platform tool that allows people to store and maintain their CVs.
+Writing a CV is hard. Formatting a CV is even harder.
 
-Therefore, people generally:
+How do we build our CVs and resumes today? We open up Microsoft Word, Google Docs, Overleaf, or an online resume builder. Then we export it to PDF, upload it to cloud storage, and hope we can find it later.
 
--   Create their CVs using Microsoft Word, Google Docs, or Overleaf.
--   Save them as PDFs in their cloud storage.
--   Access the PDFs from their PCs or mobile phones whenever they need them.
+But what really happens over time?
 
-But:
+-   **Lost versions:** We often end up digging through old emails and folders, trying to locate the right, latest version.
+-   **Lost history:** It's nearly impossible to revisit the resume you used 15 years ago or see how your career narrative has evolved.
+-   **Formatting headaches:** Most feedback you receive on your resume is about formatting—and you're stuck wrestling with layouts, fonts, and spacing.
+-   **No mobile editing:** Spot a typo at the last second? Good luck fixing it from your phone.
 
--   Are we truly organized with our cloud storage, or do we end up searching through old emails to find our CVs?
--   Can we effectively version-control our CVs? Can we find versions from, say, 2012?
--   Is the formatting of our CVs good, or do we often receive feedback about bad formatting?
--   If we spot a typo at the last minute, can we quickly fix it from our mobile devices?
+These frustrations point to a fundamental problem: there's no dedicated application designed from the ground up to handle CVs and resumes.
 
-We have solved these kinds of problems in other areas with apps before:
+We've solved similar problems in other domains by building purpose-built apps:
 
--   **Photos:** We no longer need to worry about folders and files; photo apps organize them for us, doing a much better job because they're tailored for it.
--   **Notes:** We don't need to keep track of lots of Word files anymore; we have tools like Notion and Obsidian.
--   **Music:** We used to store music as MP3 files in our folders. Now, we have Spotify, Apple Music, and YouTube Music.
+-   **Photos:** We no longer manage photos in messy folders. Apps now organize, categorize, and let us search through them effortlessly.
+-   **Notes:** Tools like Notion and Obsidian replaced endless Word documents, giving us a powerful interface to create, structure, and access notes.
+-   **Music:** We no longer store MP3 files in hard disks. Now, we have Spotify, Apple Music, and YouTube Music. They let us find and enjoy music effortlessly without worrying about MP3s.
 
-All of these examples share a common idea: they are purpose-built apps designed specifically for their applications. Yet, we don’t have a purpose-built CV app that embodies this same idea.
+All of these examples share a common idea: they are purpose-built apps designed specifically for their applications. Yet, we don't have a purpose-built CV/resume app that embodies this same idea.
 
-Imagine an app for CVs:
+Imagine a dedicated CV/resume app:
 
--   You simply write your content and get a very professional CV as a PDF.
--   You store your CVs and lock their versions where everything is securely stored.
--   You can access them from your mobile device and share any version of your CV with a click.
--   You can fix typos directly from your mobile app.
--   You even have the option to bring your own LaTeX templates to the app.
--   There is a platform where people can share their templates, allowing you to choose the best one for your purpose.
+-   **Content-first:** You just write your content and instantly get a polished, professional PDF. No fighting with formatting.
+-   **One secure home:** Your CV versions are neatly organized and secured in one place. No more version chaos.
+-   **Available on mobile:** Access and edit your CV from anywhere, fix typos on the go, and share instantly with a single tap.
+-   **Full customization:** Prefer a certain format? Bring your own Typst templates into the app.
+-   **Marketplace of themes:** Share your own themes or explore those created by others!
+-   **Open-source core:** Built on an open-source engine, ensuring your documents are always reproducible and never trapped in a proprietary system.
 
-We are building this app on top of our open-source engine so that your CVs generated with RenderCV will always be reproducible, and you can use RenderCV without using the app.
+Introducing RenderCV, an initiative by a passionate team dedicated to bringing this vision to life.  Our web app is already available in beta, and iOS and Android versions are on the way. At its heart is our open-source rendering engine, ensuring reliability and reproducibility.
+
+The open-source rendering engine: [github.com/rendercv/rendercv](https://github.com/rendercv/rendercv)
+
+The web app (beta): [app.rendercv.com](https://app.rendercv.com)
 
 ##  Comments and Feedback
 

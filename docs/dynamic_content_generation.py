@@ -7,11 +7,13 @@ are coming from this script.
 
 import io
 import pathlib
+from typing import get_args
 
 import pydantic
 import ruamel.yaml
 
 import rendercv.data as data
+import rendercv.themes.options as theme_options
 
 repository_root = pathlib.Path(__file__).parent.parent
 rendercv_path = repository_root / "rendercv"
@@ -25,6 +27,8 @@ class SampleEntries(pydantic.BaseModel):
     publication_entry: data.PublicationEntry
     one_line_entry: data.OneLineEntry
     bullet_entry: data.BulletEntry
+    numbered_entry: data.NumberedEntry
+    reversed_numbered_entry: data.ReversedNumberedEntry
     text_entry: str
 
 
@@ -41,8 +45,7 @@ def dictionary_to_yaml(dictionary: dict):
     yaml_object.indent(mapping=2, sequence=4, offset=2)
     with io.StringIO() as string_stream:
         yaml_object.dump(dictionary, string_stream)
-        yaml_string = string_stream.getvalue()
-    return yaml_string
+        return string_stream.getvalue()
 
 
 def define_env(env):
@@ -53,14 +56,14 @@ def define_env(env):
     # validate the parsed dictionary by creating an instance of SampleEntries:
     SampleEntries(**sample_entries)
 
-    entries_showcase = dict()
+    entries_showcase = {}
     for entry_name, entry in sample_entries.items():
         proper_entry_name = entry_name.replace("_", " ").title().replace(" ", "")
         entries_showcase[proper_entry_name] = {
             "yaml": dictionary_to_yaml(entry),
             "figures": [
                 {
-                    "path": f"../assets/images/{theme}/{entry_name}.png",
+                    "path": f"assets/images/{theme}/{entry_name}.png",
                     "alt_text": f"{proper_entry_name} in {theme}",
                     "theme": theme,
                 }
@@ -68,7 +71,7 @@ def define_env(env):
             ],
         }
 
-    env.variables["showcase_entries"] = entries_showcase
+    env.variables["sample_entries"] = entries_showcase
 
     # Available themes strings (put available themes between ``)
     themes = [f"`{theme}`" for theme in data.available_themes]
@@ -79,3 +82,26 @@ def define_env(env):
         f"`{social_network}`" for social_network in data.available_social_networks
     ]
     env.variables["available_social_networks"] = ", ".join(social_networks)
+
+    # Others:
+    env.variables["available_page_sizes"] = ", ".join(
+        [f"`{page_size}`" for page_size in get_args(theme_options.PageSize)]
+    )
+    env.variables["available_font_families"] = ", ".join(
+        [f"`{font_family}`" for font_family in get_args(theme_options.FontFamily)]
+    )
+    env.variables["available_text_alignments"] = ", ".join([
+        f"`{text_alignment}`"
+        for text_alignment in get_args(theme_options.TextAlignment)
+    ])
+    env.variables["available_header_alignments"] = ", ".join([
+        f"`{header_alignment}`"
+        for header_alignment in get_args(theme_options.Alignment)
+    ])
+    env.variables["available_section_title_types"] = ", ".join([
+        f"`{section_title_type}`"
+        for section_title_type in get_args(get_args(theme_options.SectionTitleType)[0])
+    ])
+    env.variables["available_bullets"] = ", ".join(
+        [f"`{bullet}`" for bullet in get_args(theme_options.BulletPoint)]
+    )

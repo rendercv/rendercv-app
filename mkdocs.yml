@@ -6,7 +6,7 @@ copyright: Copyright &copy; 2024 RenderCV
 theme:
   name: material
   language: en
-  logo: assets/images/logo.svg
+  logo: assets/images/icon.svg
   custom_dir: docs/overrides
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -68,7 +68,7 @@ markdown_extensions:
 plugins:
   - search
   - macros: # mkdocs-macros-plugin
-      module_name: docs/update_entry_figures
+      module_name: docs/dynamic_content_generation
 
 extra_javascript:
   - assets/javascripts/katex.js
